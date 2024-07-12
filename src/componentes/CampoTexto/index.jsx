@@ -26,13 +26,16 @@ const TextoInput = styled.input`
 `;
 
 const CampoTexto = (props) => {
-  console.log("Datos", props.titulo);
+  console.log("Datos", props);
 
   const placeholderModificado = `${props.placeholder}...`;
   return (
     <Texto>
       <TextoLabel>{props.titulo}</TextoLabel>
-      <TextoInput placeholder={props.placeholderModificado} />
+      <TextoInput
+        placeholder={placeholderModificado}
+        required={props.required}
+      />
     </Texto>
   );
 };

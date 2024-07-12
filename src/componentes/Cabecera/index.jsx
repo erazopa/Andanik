@@ -11,7 +11,8 @@ const HeaderEstilizado = styled.header`
   }
 `;
 
-const Cabecera = () => {
+const Cabecera = (props) => {
+  console.log(props);
   return (
     <HeaderEstilizado>
       <img src="imagenes/logo1.png" alt="Logo Andanik Joyeros" />

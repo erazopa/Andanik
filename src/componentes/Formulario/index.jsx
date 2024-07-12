@@ -39,17 +39,26 @@ const Crear = styled.h2`
 `;
 
 const Formulario = () => {
+  const manejarEnvio = (evento) => {
+    evento.preventDefault();
+    console.log("Manejar el envio", evento);
+  };
+
   return (
     <Texto>
-      <FormularioForm>
+      <FormularioForm onSubmit={manejarEnvio}>
         <TituloForm>NUEVO ARTICULO</TituloForm>
         <DatosForm>
           COMPLETE EL FORMULARIO PARA CREAR UN NUEVO ARTICULO
         </DatosForm>
         <Crear>Crear Tarjeta</Crear>
-        <CampoTexto titulo="Descripcion" placeholder="Ingresar descripcion" />
-        <CampoTexto titulo="Imagen" placeholder="Ingresar imagen " />
-        <CampoTexto titulo="Valor" placeholder="Ingresar valor" />
+        <CampoTexto
+          titulo="Descripcion"
+          placeholder="Ingresar descripcion"
+          required
+        />
+        <CampoTexto titulo="Imagen" placeholder="Ingresar imagen " required />
+        <CampoTexto titulo="Valor" placeholder="Ingresar valor" required />
         <ListaDeOpciones />
         <Boton>Crear</Boton>
         <BotonClear>Limpiar</BotonClear>

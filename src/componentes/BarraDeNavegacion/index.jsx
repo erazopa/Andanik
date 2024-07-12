@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 
 const ListaEstilizada = styled.ul`
@@ -41,12 +42,22 @@ const ItemDeNavegacion = styled.button`
   cursor: pointer;
 `;
 
-const BarraDeNavegacion = () => {
+const BarraDeNavegacion = (props) => {
+  console.log(props);
+  //USO DEL useState//
+  // const [mostrar, actualizarMostrar] = useState(true);
+  // const manejarClick = () => {
+  //   console.log("mostrar/ocultar elemento", !mostrar);
+  //   actualizarMostrar(!mostrar);
+  // };
+
   return (
     <nav>
       <ListaEstilizada>
         <ItemDeNavegacionHome>INICIO</ItemDeNavegacionHome>
-        <ItemDeNavegacion>NUEVO PRODUCTO</ItemDeNavegacion>
+        <ItemDeNavegacion onClick={props.cambiarMostrar}>
+          NUEVO PRODUCTO
+        </ItemDeNavegacion>
       </ListaEstilizada>
     </nav>
   );

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 
 const Texto = styled.div`
@@ -26,15 +27,19 @@ const TextoInput = styled.input`
 `;
 
 const CampoTexto = (props) => {
-  console.log("Datos", props);
-
   const placeholderModificado = `${props.placeholder}...`;
+
+  const manejarCambio = (e) => {
+    props.actualizarValor(e.target.value);
+  };
   return (
     <Texto>
       <TextoLabel>{props.titulo}</TextoLabel>
       <TextoInput
         placeholder={placeholderModificado}
         required={props.required}
+        value={props.valor}
+        onChange={manejarCambio}
       />
     </Texto>
   );

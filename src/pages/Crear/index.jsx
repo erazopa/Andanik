@@ -1,12 +1,11 @@
 import { useState } from "react";
 import styled from "styled-components";
-import CampoTexto from "../CampoTexto";
-import ListaDeOpciones from "../ListaDeOpciones";
-import Boton from "../Boton";
-import BotonClear from "../BotonLimpiar";
+import CampoTexto from "../../componentes/CampoTexto";
+import ListaDeOpciones from "../../componentes/ListaDeOpciones";
+import Boton from "../../componentes/Boton";
+import BotonClear from "../../componentes/BotonLimpiar";
 
 const Texto = styled.section`
-  width: 70%;
   display: flex;
   justify-content: center;
   margin: 80px 0;
@@ -25,7 +24,23 @@ const TituloForm = styled.h1`
   border-bottom: 4px solid #ffffff;
 `;
 
-const FormEditar = () => {
+const DatosForm = styled.h3`
+  font-size: 25px;
+  color: #ffffff;
+  font-family: "GandhiSansRegular";
+  text-align: center;
+  border-bottom: 4px solid #ffffff;
+`;
+
+const Crear = styled.h2`
+  font-size: 35px;
+  color: #ffffff;
+  font-family: "GandhiSansBold";
+  border-bottom: 4px solid #ffffff;
+  margin-left: 15px;
+`;
+
+const Formulario = () => {
   const [descripcion, actualizarDescripcion] = useState("");
   const [imagen, actualizarImagen] = useState("");
   const [valor, actualizarValor] = useState("");
@@ -47,7 +62,11 @@ const FormEditar = () => {
   return (
     <Texto>
       <FormularioForm onSubmit={manejarEnvio}>
-        <TituloForm>EDITAR CARD</TituloForm>
+        <TituloForm>NUEVO ARTICULO</TituloForm>
+        <DatosForm>
+          COMPLETE EL FORMULARIO PARA CREAR UN NUEVO ARTICULO
+        </DatosForm>
+        <Crear>Crear Tarjeta</Crear>
         <CampoTexto
           titulo="Descripcion"
           placeholder="Ingresar descripcion"
@@ -62,7 +81,6 @@ const FormEditar = () => {
           valor={imagen}
           actualizarValor={actualizarImagen}
         />
-
         <CampoTexto
           titulo="Valor"
           placeholder="Ingresar valor"
@@ -74,11 +92,11 @@ const FormEditar = () => {
           valor={categorias}
           actualizaValor={actualizarCategorias}
         />
-        <Boton>Guardar</Boton>
+        <Boton>Crear</Boton>
         <BotonClear>Limpiar</BotonClear>
       </FormularioForm>
     </Texto>
   );
 };
 
-export default FormEditar;
+export default Formulario;

@@ -15,10 +15,10 @@ const Articulo = styled.h3`
   padding-bottom: 8px;
 `;
 
-const Galeria = () => {
+const Galeria = (props) => {
   return (
     <SeccionGaleria>
-      <Articulo>Anillos de Compromiso</Articulo>
+      <Articulo>{props.categorias}</Articulo>
     </SeccionGaleria>
   );
 };

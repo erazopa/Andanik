@@ -25,11 +25,13 @@ const TituloForm = styled.h1`
   border-bottom: 4px solid #ffffff;
 `;
 
-const FormEditar = () => {
+const FormEditar = (props) => {
   const [descripcion, actualizarDescripcion] = useState("");
   const [imagen, actualizarImagen] = useState("");
   const [valor, actualizarValor] = useState("");
   const [categorias, actualizarCategorias] = useState("");
+
+  const { registrarArticulo } = props;
 
   const manejarEnvio = (evento) => {
     evento.preventDefault();
@@ -41,7 +43,7 @@ const FormEditar = () => {
       categorias,
     };
 
-    console.log(datosAEnviar);
+    registrarArticulo(datosAEnviar);
   };
 
   return (
@@ -73,6 +75,7 @@ const FormEditar = () => {
         <ListaDeOpciones
           valor={categorias}
           actualizaValor={actualizarCategorias}
+          categorias={props.categorias}
         />
         <Boton>Guardar</Boton>
         <BotonClear>Limpiar</BotonClear>

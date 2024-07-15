@@ -15,7 +15,7 @@ const TituloEstilizado = styled.h1`
   font-weight: 400;
   font-size: 40px;
   line-height: 48px;
-  color: #401801;
+  color: #ffffff;
   max-width: 300px;
   padding: 0px;
   text-align: center;

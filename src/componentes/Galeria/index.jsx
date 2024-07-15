@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Articulo from "../Articulo";
 
 const SeccionGaleria = styled.section`
   width: 100%;
@@ -7,18 +8,45 @@ const SeccionGaleria = styled.section`
   text-align: center;
   font-size: 32px;
 `;
-const Articulo = styled.h3`
+const Descripcion = styled.h3`
   font-weight: 400;
   color: #401801;
-  border-bottom: 4px solid #d9984a;
+  border-bottom: 4px solid;
   display: inline-block;
   padding-bottom: 8px;
 `;
+const ImgArticulo = styled.div`
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  img {
+    margin-bottom: 4px;
+  }
+`;
 
 const Galeria = (props) => {
+  //Destructuracion
+  const { colorPrimario, colorSecundario, titulo } = props.datos;
+  const { articulos } = props;
+
+  const obj = {
+    backgroundColor: colorSecundario,
+  };
+
+  const estiloTitulo = { borderColor: colorPrimario };
+
   return (
     <SeccionGaleria>
-      <Articulo>{props.categorias}</Articulo>
+      <Descripcion style={estiloTitulo}>{titulo}</Descripcion>
+      <ImgArticulo>
+        {articulos.map((articulo, index) => (
+          <Articulo
+            datos={articulo}
+            key={index}
+            colorPrimario={colorPrimario}
+          />
+        ))}
+      </ImgArticulo>
     </SeccionGaleria>
   );
 };

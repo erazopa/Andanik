@@ -24,12 +24,6 @@ const ListaSelect = styled.select`
 `;
 
 const ListaDeOpciones = (props) => {
-  const categorias = [
-    "Anillos de Compromiso",
-    "Argollas de Matrimonio",
-    "Pulseras",
-  ];
-
   const manejarCambio = (e) => {
     console.log("cambio", e.target.value);
     props.actualizaValor(e.target.value);
@@ -42,7 +36,7 @@ const ListaDeOpciones = (props) => {
         <option value="" disabled defaultValue="" hidden>
           Seleccionar Categoria
         </option>
-        {categorias.map((categoria, index) => {
+        {props.categorias.map((categoria, index) => {
           return (
             <option key={index} value={categoria}>
               {categoria}

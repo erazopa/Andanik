@@ -74,7 +74,7 @@ const FormEditar = (props) => {
         />
         <ListaDeOpciones
           valor={categorias}
-          actualizaValor={actualizarCategorias}
+          actualizaCategorias={actualizarCategorias}
           categorias={props.categorias}
         />
         <Boton>Guardar</Boton>

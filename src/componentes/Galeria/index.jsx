@@ -27,11 +27,7 @@ const ImgArticulo = styled.div`
 const Galeria = (props) => {
   //Destructuracion
   const { colorPrimario, colorSecundario, titulo } = props.datos;
-  const { articulos } = props;
-
-  const obj = {
-    backgroundColor: colorSecundario,
-  };
+  const { articulos, eliminarArticulo } = props;
 
   const estiloTitulo = { borderColor: colorPrimario };
 
@@ -44,6 +40,7 @@ const Galeria = (props) => {
             datos={articulo}
             key={index}
             colorPrimario={colorPrimario}
+            eliminarArticulo={eliminarArticulo}
           />
         ))}
       </ImgArticulo>

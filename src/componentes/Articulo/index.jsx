@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { MdDelete } from "react-icons/md";
+import { FaRegEdit } from "react-icons/fa";
 
 const Vitrina = styled.div`
   width: 280px;
@@ -9,7 +11,7 @@ const VitrinaImg = styled.div`
   img {
     position: relative;
     border-radius: 20%;
-    width: 300px;
+    width: 275px;
   }
 `;
 const VitrinaInfo = styled.div``;
@@ -27,9 +29,14 @@ const VitrinaValor = styled.h5`
   padding-left: 10px;
 `;
 
+const Iconos = styled.span`
+  display: flex;
+  justify-content: space-evenly;
+`;
+
 const Articulo = (props) => {
   const { descripcion, imagen, valor, categoria } = props.datos;
-  const { colorPrimario } = props;
+  const { colorPrimario, eliminarArticulo } = props;
 
   return (
     <Vitrina>
@@ -39,6 +46,10 @@ const Articulo = (props) => {
       <VitrinaInfo>
         <VitrinaDescript>{descripcion}</VitrinaDescript>
         <VitrinaValor>{valor}</VitrinaValor>
+        <Iconos>
+          <MdDelete onClick={eliminarArticulo} />
+          <FaRegEdit />
+        </Iconos>
       </VitrinaInfo>
     </Vitrina>
   );

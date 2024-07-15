@@ -16,7 +16,7 @@ const ContenidoGaleria = styled.section`
 `;
 function App() {
   const [mostrarFormulario, actualizarMostrar] = useState(true);
-  const [articulo, actualizarArticulos] = useState([
+  const [articulos, actualizarArticulos] = useState([
     {
       categoria: "Anillos de Compromiso",
       imagen: "imagenes/anillo1.png",
@@ -91,17 +91,8 @@ function App() {
     },
   ]);
 
-  const cambiarMostrar = () => {
-    actualizarMostrar(!mostrarFormulario);
-  };
-
-  const registrarArticulo = (categoria) => {
-    console.log("Nuevo Articulo", categoria);
-    actualizarCategorias([...categorias, categoria]);
-  };
-
   // Lista de Categorias
-  const categorias = [
+  const [categorias, actualizarCategorias] = useState([
     {
       titulo: "Anillos de Compromiso",
       colorPrimario: "#402F21",
@@ -117,7 +108,20 @@ function App() {
       colorPrimario: "#402F21",
       colorSecundario: "#D9C6B0",
     },
-  ];
+  ]);
+
+  const cambiarMostrar = () => {
+    actualizarMostrar(!mostrarFormulario);
+  };
+  //Registro Articulo
+  const registrarArticulo = (articulo) => {
+    console.log("Nuevo Articulo", articulo);
+    actualizarArticulos([...articulos, articulo]);
+  };
+  //Eliminar Articulo
+  const eliminarArticulo = () => {
+    console.log("Eliminar colaborador");
+  };
 
   return (
     <Router>
@@ -144,6 +148,7 @@ function App() {
             articulos={articulos.filter(
               (articulo) => articulo.categoria === categoria.titulo
             )}
+            eliminarArticulo={eliminarArticulo}
           />
         ))}
       </ContenidoGaleria>
